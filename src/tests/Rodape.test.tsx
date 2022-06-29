@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 import { RecoilRoot } from 'recoil';
-import { Rodape } from './rodape';
+import { Rodape } from '../components/rodape';
 import { useListaDeParticipantes } from '../state/hook/useListaDeParticipantes';
 
 
