@@ -13,11 +13,16 @@ jest.mock('../state/hook/useListaDeParticipantes', () => {
 
 // mockando o hook de navegacao
 const mockNavegacao = jest.fn()
+const mockSorteio = jest.fn()
 
 jest.mock('react-router-dom', () => {
   return {
-    
     useNavigate: () => mockNavegacao // utilizar outra arrow function quando o hook em questao chamar outra funcao
+  }
+})
+jest.mock('../state/hook/useSorteador', () => {
+  return {
+    useSorteador: () => mockSorteio // utilizar outra arrow function quando o hook em questao chamar outra funcao
   }
 })
 
@@ -81,6 +86,7 @@ describe('quando existem participantes suficientes', () => {
     // expect(mockNavegacao).toHaveBeenCalledTimes(2)
     // ou se o metodo foi chamado com a rota que desejamos
     expect(mockNavegacao).toHaveBeenCalledWith('/sorteio')
+    expect(mockSorteio).toHaveBeenCalledTimes(1)
 
 
   })
